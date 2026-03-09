@@ -1,0 +1,87 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001813ed5b080 .scope module, "encoder_tb" "encoder_tb" 2 2;
+ .timescale -9 -12;
+v000001813ede2dc0_0 .net "t_a", 0 0, L_000001813ed59a10;  1 drivers
+v000001813ede2e60_0 .net "t_b", 0 0, L_000001813ed5dd20;  1 drivers
+v000001813ede2f00_0 .var "t_y0", 0 0;
+v000001813ede2fa0_0 .var "t_y1", 0 0;
+v000001813ede3040_0 .var "t_y2", 0 0;
+v000001813ede30e0_0 .var "t_y3", 0 0;
+S_000001813ed5b4e0 .scope module, "gut" "encoder" 2 6, 3 2 0, S_000001813ed5b080;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "Y3";
+    .port_info 1 /INPUT 1 "Y2";
+    .port_info 2 /INPUT 1 "Y1";
+    .port_info 3 /INPUT 1 "Y0";
+    .port_info 4 /OUTPUT 1 "A";
+    .port_info 5 /OUTPUT 1 "B";
+L_000001813ed59a10 .functor OR 1, v000001813ede2fa0_0, v000001813ede30e0_0, C4<0>, C4<0>;
+L_000001813ed5dd20 .functor OR 1, v000001813ede3040_0, v000001813ede30e0_0, C4<0>, C4<0>;
+v000001813ed5b670_0 .net "A", 0 0, L_000001813ed59a10;  alias, 1 drivers
+v000001813ed59970_0 .net "B", 0 0, L_000001813ed5dd20;  alias, 1 drivers
+v000001813ed5cc40_0 .net "Y0", 0 0, v000001813ede2f00_0;  1 drivers
+v000001813ed5ada0_0 .net "Y1", 0 0, v000001813ede2fa0_0;  1 drivers
+v000001813ed5ae40_0 .net "Y2", 0 0, v000001813ede3040_0;  1 drivers
+v000001813ede2d20_0 .net "Y3", 0 0, v000001813ede30e0_0;  1 drivers
+    .scope S_000001813ed5b080;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "Encoder.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001813ed5b080 {0 0 0};
+    %vpi_call 2 15 "$display", "Y3 Y2 Y1 Y0 | A B" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede30e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede3040_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede2fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001813ede2f00_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 20 "$display", "%b %b %b %b | %b %b", v000001813ede2f00_0, v000001813ede2fa0_0, v000001813ede3040_0, v000001813ede30e0_0, v000001813ede2dc0_0, v000001813ede2e60_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede30e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede3040_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001813ede2fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede2f00_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 24 "$display", "%b %b %b %b | %b %b", v000001813ede2f00_0, v000001813ede2fa0_0, v000001813ede3040_0, v000001813ede30e0_0, v000001813ede2dc0_0, v000001813ede2e60_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede30e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001813ede3040_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede2fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede2f00_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 28 "$display", "%b %b %b %b | %b %b", v000001813ede2f00_0, v000001813ede2fa0_0, v000001813ede3040_0, v000001813ede30e0_0, v000001813ede2dc0_0, v000001813ede2e60_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001813ede30e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede3040_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede2fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001813ede2f00_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 32 "$display", "%b %b %b %b | %b %b", v000001813ede2f00_0, v000001813ede2fa0_0, v000001813ede3040_0, v000001813ede30e0_0, v000001813ede2dc0_0, v000001813ede2e60_0 {0 0 0};
+    %vpi_call 2 33 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "encoder_tb.v";
+    "encoder.v";
